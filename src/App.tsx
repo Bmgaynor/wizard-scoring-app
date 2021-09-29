@@ -6,7 +6,11 @@ import { Players } from "./Components/Players";
 import { AddPlayer } from "./Components/AddPlayer";
 import { Scores } from "./Components/Scores";
 import { NewGame } from "./Components/NewGame";
-
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import { History } from "./Components/History";
 /*
   State
     List of players
@@ -19,14 +23,26 @@ import { NewGame } from "./Components/NewGame";
 function App() {
   const [state, dispatch] = React.useReducer(reducer, defaultState);
   return (
-    <div className="App">
-      <StateContext.Provider value={{ state, dispatch }}>
-        <AddPlayer />
-        <Players />
-        <Scores />
-        <NewGame />
-      </StateContext.Provider>
-    </div>
+    <StateContext.Provider value={{ state, dispatch }}>
+      <React.Fragment>
+        <CssBaseline />
+        <Container maxWidth="lg">
+          <Box sx={{ bgcolor: "#cfe8fc", minHeight: "100vh" }}>
+            <Grid container>
+              <Grid item xs={12} md={2}>
+                <AddPlayer />
+                <NewGame />
+                <Scores />
+              </Grid>
+              <Grid item xs={12} md={8}>
+                <Players />
+                <History />
+              </Grid>
+            </Grid>
+          </Box>
+        </Container>
+      </React.Fragment>
+    </StateContext.Provider>
   );
 }
 

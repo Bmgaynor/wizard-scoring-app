@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { StateContext, ActionType } from "../state";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
 
 export function AddRound({
   roundNumber,
@@ -13,10 +15,10 @@ export function AddRound({
   return (
     <div>
       <div>Guess</div>
-      <ul>
+      <ButtonGroup variant="contained" aria-label="Create new round">
         {Array.from(Array(roundNumber + 1).keys()).map((round, index) => {
           return (
-            <button
+            <Button
               key={round}
               onClick={() => {
                 dispatch({
@@ -30,10 +32,10 @@ export function AddRound({
               }}
             >
               {round}
-            </button>
+            </Button>
           );
         })}
-      </ul>
+      </ButtonGroup>
     </div>
   );
 }

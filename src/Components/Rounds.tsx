@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import React from "react";
 import { Player } from "../state";
 import { Round } from "./Round";
@@ -11,10 +12,10 @@ export function Rounds({
 }) {
   //   const { state } = React.useContext(StateContext);
   return (
-    <ul>
+    <Grid container>
       {Object.values(rounds).map((round, index) => {
         return <Round key={index} round={round} playerIndex={playerIndex} />;
       })}
-    </ul>
+    </Grid>
   );
 }

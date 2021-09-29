@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import React from "react";
 import { Round as RoundType } from "../state";
 import { AddActual } from "./AddActual";
@@ -10,11 +11,18 @@ export function Round({
   playerIndex: number;
 }) {
   return (
-    <li>
-      <div>Number: {round.number}</div>
+    <Grid item xs={4}>
+      <div>Round: {round.number}</div>
       <div>Guess: {round.guess}</div>
-      <div>Actual: {round.actual || ""}</div>
-      <AddActual roundNumber={round.number} playerIndex={playerIndex} />
-    </li>
+      {Number.isInteger(round?.actual) ? (
+        <div>Actual: {round.actual}</div>
+      ) : (
+        <AddActual
+          roundNumber={round.number}
+          playerIndex={playerIndex}
+          actual={round.actual}
+        />
+      )}
+    </Grid>
   );
 }

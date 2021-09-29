@@ -55,7 +55,7 @@ export function reducer(state: State, action: Action): State {
       const playerIndex = action.value;
       return {
         ...state,
-        players: state.players.splice(playerIndex, 1),
+        players: state.players.splice(playerIndex + 1, 1),
       };
     case ActionType.ADD_PLAYER_ACTUAL:
       return {

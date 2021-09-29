@@ -1,16 +1,20 @@
 import React from "react";
 import { StateContext } from "../state";
-import { Player } from "./Player";
-import Grid from "@mui/material/Grid";
 
-export function Players() {
+import Grid from "@mui/material/Grid";
+import { Rounds } from "./Rounds";
+
+export function History() {
   const { state } = React.useContext(StateContext);
   return (
     <div>
-      <div>Players</div>
+      <div>History</div>
       <Grid container>
         {state.players.map((player, index) => (
-          <Player key={index} index={index} player={player} />
+          <Grid item xs={12}>
+            <div>{player.name}</div>
+            <Rounds key={index} playerIndex={index} rounds={player.rounds} />
+          </Grid>
         ))}
       </Grid>
     </div>

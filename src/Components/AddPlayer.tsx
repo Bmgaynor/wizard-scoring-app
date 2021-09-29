@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
 import { StateContext, ActionType } from "../state";
+import AddIcon from "@mui/icons-material/Add";
+import IconButton from "@mui/material/IconButton";
+import TextField from "@mui/material/TextField";
 
 export function AddPlayer() {
   const [playerName, setPlayerName] = React.useState("");
@@ -16,14 +19,16 @@ export function AddPlayer() {
           setPlayerName("");
         }}
       >
-        <label htmlFor="newPlayerName">Add Player</label>
-        <input
-          type="text"
-          name="newPlayerName"
+        <TextField
+          id="newPlayerName"
+          label="Add Player"
+          variant="outlined"
           value={playerName}
           onChange={(e) => setPlayerName(e.target.value)}
         />
-        <button type="submit">+</button>
+        <IconButton type="submit">
+          <AddIcon />
+        </IconButton>
       </form>
     </div>
   );
