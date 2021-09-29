@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import "./App.css";
+import { StateContext, defaultState, reducer } from "./state";
+import { Players } from "./Components/Players";
+import { AddPlayer } from "./Components/AddPlayer";
+
+/*
+  State
+    List of players
+      Current Score
+      array of guesses 
+      array of actuals 
+
+ */
 
 function App() {
+  const [state, dispatch] = React.useReducer(reducer, defaultState);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StateContext.Provider value={{ state, dispatch }}>
+        <Players />
+        <AddPlayer />
+      </StateContext.Provider>
     </div>
   );
 }
