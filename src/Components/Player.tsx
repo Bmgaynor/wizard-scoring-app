@@ -1,12 +1,10 @@
 import React from "react";
 import { ActionType, Player as PlayerType, StateContext } from "../state";
 import { AddRound } from "./AddRound";
-import { Rounds } from "./Rounds";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import IconButton from "@mui/material/IconButton";
 import { Grid } from "@mui/material";
 import { Round } from "./Round";
-import { NewGame } from "./NewGame";
 
 export function Player({
   player,
