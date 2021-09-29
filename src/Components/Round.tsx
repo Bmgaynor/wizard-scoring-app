@@ -1,5 +1,5 @@
 import React from "react";
-import { ActionType, Round as RoundType, StateContext } from "../state";
+import { Round as RoundType } from "../state";
 import { AddActual } from "./AddActual";
 
 export function Round({

@@ -4,6 +4,8 @@ import "./App.css";
 import { StateContext, defaultState, reducer } from "./state";
 import { Players } from "./Components/Players";
 import { AddPlayer } from "./Components/AddPlayer";
+import { Scores } from "./Components/Scores";
+import { NewGame } from "./Components/NewGame";
 
 /*
   State
@@ -19,8 +21,10 @@ function App() {
   return (
     <div className="App">
       <StateContext.Provider value={{ state, dispatch }}>
-        <Players />
         <AddPlayer />
+        <Players />
+        <Scores />
+        <NewGame />
       </StateContext.Provider>
     </div>
   );

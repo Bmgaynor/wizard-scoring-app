@@ -20,6 +20,7 @@ export enum ActionType {
   "REMOVE_PLAYER",
   "ADD_PLAYER_GUESS",
   "ADD_PLAYER_ACTUAL",
+  "NEW_GAME",
 }
 export const defaultState = {
   players: [] as Array<Player>,
@@ -92,6 +93,15 @@ export function reducer(state: State, action: Action): State {
                 number: action.value.roundNumber,
               },
             },
+          };
+        }),
+      };
+    case ActionType.NEW_GAME:
+      return {
+        players: state.players.map((player) => {
+          return {
+            ...player,
+            rounds: {},
           };
         }),
       };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Player, StateContext } from "../state";
+import { Player } from "../state";
 import { Round } from "./Round";
 
 export function Rounds({
