@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/wizard-scoring-app/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/wizard-scoring-app/static/js/main.141e8c3d.chunk.js",
-    "main.js.map": "/wizard-scoring-app/static/js/main.141e8c3d.chunk.js.map",
-    "runtime-main.js": "/wizard-scoring-app/static/js/runtime-main.4e9b7c2a.js",
-    "runtime-main.js.map": "/wizard-scoring-app/static/js/runtime-main.4e9b7c2a.js.map",
-    "static/js/2.0bd95af5.chunk.js": "/wizard-scoring-app/static/js/2.0bd95af5.chunk.js",
-    "static/js/2.0bd95af5.chunk.js.map": "/wizard-scoring-app/static/js/2.0bd95af5.chunk.js.map",
-    "static/js/3.08ae6a7d.chunk.js": "/wizard-scoring-app/static/js/3.08ae6a7d.chunk.js",
-    "static/js/3.08ae6a7d.chunk.js.map": "/wizard-scoring-app/static/js/3.08ae6a7d.chunk.js.map",
+    "main.js": "/wizard-scoring-app/static/js/main.3c216dfb.chunk.js",
+    "main.js.map": "/wizard-scoring-app/static/js/main.3c216dfb.chunk.js.map",
+    "runtime-main.js": "/wizard-scoring-app/static/js/runtime-main.49ac4890.js",
+    "runtime-main.js.map": "/wizard-scoring-app/static/js/runtime-main.49ac4890.js.map",
+    "static/js/2.e74f8508.chunk.js": "/wizard-scoring-app/static/js/2.e74f8508.chunk.js",
+    "static/js/2.e74f8508.chunk.js.map": "/wizard-scoring-app/static/js/2.e74f8508.chunk.js.map",
+    "static/js/3.a1b14402.chunk.js": "/wizard-scoring-app/static/js/3.a1b14402.chunk.js",
+    "static/js/3.a1b14402.chunk.js.map": "/wizard-scoring-app/static/js/3.a1b14402.chunk.js.map",
     "index.html": "/wizard-scoring-app/index.html",
     "static/css/main.8c8b27cf.chunk.css.map": "/wizard-scoring-app/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.0bd95af5.chunk.js.LICENSE.txt": "/wizard-scoring-app/static/js/2.0bd95af5.chunk.js.LICENSE.txt"
+    "static/js/2.e74f8508.chunk.js.LICENSE.txt": "/wizard-scoring-app/static/js/2.e74f8508.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.4e9b7c2a.js",
-    "static/js/2.0bd95af5.chunk.js",
+    "static/js/runtime-main.49ac4890.js",
+    "static/js/2.e74f8508.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.141e8c3d.chunk.js"
+    "static/js/main.3c216dfb.chunk.js"
   ]
 }
