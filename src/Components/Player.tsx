@@ -3,8 +3,15 @@ import { ActionType, Player as PlayerType, StateContext } from "../state";
 import { AddRound } from "./AddRound";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import IconButton from "@mui/material/IconButton";
-import { Grid } from "@mui/material";
+import {
+  Card,
+  CardActions,
+  CardContent,
+  Grid,
+  Typography,
+} from "@mui/material";
 import { Round } from "./Round";
+import { Box } from "@mui/system";
 
 export function Player({
   player,
@@ -22,29 +29,42 @@ export function Player({
   const shouldShowRound = !isNewGame && !shouldShowNewRound;
   return (
     <Grid item xs={12}>
-      <Grid container xs={12}>
-        <Grid item xs={6}>
-          <IconButton
-            onClick={() => {
-              dispatch({
-                type: ActionType.REMOVE_PLAYER,
-                value: index,
-              });
-            }}
-          >
-            <RemoveCircleOutlineIcon />
-          </IconButton>
-        </Grid>
-        <Grid item xs={6}>
-          {player.name}
-        </Grid>
-      </Grid>
-      {shouldShowNewRound && (
-        <AddRound playerIndex={index} roundNumber={numRounds + 1} />
-      )}
-      {shouldShowRound && (
-        <Round round={player.rounds[numRounds]} playerIndex={index} />
-      )}
+      <Box sx={{ minWidth: 275 }}>
+        <Card variant="outlined">
+          <React.Fragment>
+            <CardContent>
+              <Typography
+                sx={{ fontSize: 14 }}
+                color="text.secondary"
+                gutterBottom
+              >
+                player
+              </Typography>
+              <Typography variant="h5" component="div">
+                {player.name}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              {shouldShowNewRound && (
+                <AddRound playerIndex={index} roundNumber={numRounds + 1} />
+              )}
+              {shouldShowRound && (
+                <Round round={player.rounds[numRounds]} playerIndex={index} />
+              )}
+              <IconButton
+                onClick={() => {
+                  dispatch({
+                    type: ActionType.REMOVE_PLAYER,
+                    value: index,
+                  });
+                }}
+              >
+                <RemoveCircleOutlineIcon />
+              </IconButton>
+            </CardActions>
+          </React.Fragment>
+        </Card>
+      </Box>
     </Grid>
   );
 }

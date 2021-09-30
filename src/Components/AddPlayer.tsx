@@ -3,12 +3,13 @@ import { StateContext, ActionType } from "../state";
 import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
+import { Card, CardActionArea, CardContent } from "@mui/material";
 
 export function AddPlayer() {
   const [playerName, setPlayerName] = React.useState("");
   const { dispatch } = useContext(StateContext);
   return (
-    <div>
+    <Card>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -19,17 +20,21 @@ export function AddPlayer() {
           setPlayerName("");
         }}
       >
-        <TextField
-          id="newPlayerName"
-          label="Add Player"
-          variant="outlined"
-          value={playerName}
-          onChange={(e) => setPlayerName(e.target.value)}
-        />
-        <IconButton type="submit">
-          <AddIcon />
-        </IconButton>
+        <CardContent>
+          <TextField
+            id="newPlayerName"
+            label="Add Player"
+            variant="outlined"
+            value={playerName}
+            onChange={(e) => setPlayerName(e.target.value)}
+          />
+        </CardContent>
+        <CardActionArea>
+          <IconButton type="submit">
+            <AddIcon />
+          </IconButton>
+        </CardActionArea>
       </form>
-    </div>
+    </Card>
   );
 }

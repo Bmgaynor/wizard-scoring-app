@@ -11,6 +11,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { History } from "./Components/History";
+import { AppBar, Toolbar, Typography } from "@mui/material";
 /*
   State
     List of players
@@ -26,8 +27,30 @@ function App() {
     <StateContext.Provider value={{ state, dispatch }}>
       <React.Fragment>
         <CssBaseline />
+        <AppBar
+          position="absolute"
+          color="transparent"
+          elevation={0}
+          sx={{
+            position: "relative",
+            borderBottom: (t) => `1px solid ${t.palette.divider}`,
+          }}
+        >
+          <Toolbar>
+            <Typography variant="h6" color="inherit" noWrap>
+              Wizard Scoring App
+            </Typography>
+          </Toolbar>
+        </AppBar>
         <Container maxWidth="lg">
-          <Box sx={{ bgcolor: "#cfe8fc", minHeight: "100vh" }}>
+          <Box
+            sx={{
+              bgcolor: "white",
+              minHeight: "100vh",
+              paddingTop: "1rem",
+              paddingBottom: "1rem",
+            }}
+          >
             <Grid container>
               <Grid item xs={12} md={2}>
                 <AddPlayer />

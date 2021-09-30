@@ -1,8 +1,8 @@
 import React from "react";
 import { Round as RoundType, Player } from "../state";
 
-function getScore(round: RoundType): number {
-  if (!round.guess || !round.actual) {
+export function getScore(round: RoundType): number {
+  if (typeof round.actual !== "number" || typeof round.guess !== "number") {
     return 0;
   }
   if (round.guess === round.actual) {
