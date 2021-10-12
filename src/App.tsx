@@ -12,6 +12,8 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { History } from "./Components/History";
 import { AppBar, Toolbar, Typography } from "@mui/material";
+import useLocalStorage from "hook-local-storage";
+
 /*
   State
     List of players
@@ -22,7 +24,11 @@ import { AppBar, Toolbar, Typography } from "@mui/material";
  */
 
 function App() {
-  const [state, dispatch] = React.useReducer(reducer, defaultState);
+  const [store, setStore] = useLocalStorage("store", defaultState);
+  const [state, dispatch] = React.useReducer(reducer, store);
+  React.useEffect(() => {
+    setStore(state);
+  }, [state, setStore]);
   return (
     <StateContext.Provider value={{ state, dispatch }}>
       <React.Fragment>
