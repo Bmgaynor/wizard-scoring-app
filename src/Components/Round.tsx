@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import React, { useContext } from "react";
 import { ActionType, Round as RoundType, StateContext } from "../state";
+import { getScore } from "./Score";
 
 export function Round({
   round,
@@ -19,13 +20,12 @@ export function Round({
   playerIndex: number;
 }) {
   const { dispatch } = useContext(StateContext);
-  console.log({ round, playerIndex });
   return (
     <Grid item xs={4}>
       <Card>
         <CardContent>
           <Typography variant="h6" component="div">
-            Round {round.number}
+            Round {round.number} ({getScore(round)})
           </Typography>
           <FormControl fullWidth>
             <InputLabel id={`${round.number}-guess`}>Guess</InputLabel>
