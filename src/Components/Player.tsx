@@ -1,8 +1,7 @@
 import React from "react";
-import { ActionType, Player as PlayerType, StateContext } from "../state";
+import { Player as PlayerType } from "../state";
 import { AddRound } from "./AddRound";
-import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
-import IconButton from "@mui/material/IconButton";
+
 import {
   Card,
   CardActions,
@@ -10,8 +9,9 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { Round } from "./Round";
+
 import { Box } from "@mui/system";
+import { AddActual } from "./AddActual";
 
 export function Player({
   player,
@@ -20,7 +20,6 @@ export function Player({
   player: PlayerType;
   index: number;
 }) {
-  const { dispatch } = React.useContext(StateContext);
   const numRounds = Object.keys(player.rounds).length;
   const currentRound = player.rounds[numRounds];
   const isNewGame = numRounds === 0;
@@ -49,18 +48,12 @@ export function Player({
                 <AddRound playerIndex={index} roundNumber={numRounds + 1} />
               )}
               {shouldShowRound && (
-                <Round round={player.rounds[numRounds]} playerIndex={index} />
+                <AddActual
+                  playerIndex={index}
+                  roundNumber={numRounds}
+                  actual={currentRound?.actual}
+                />
               )}
-              <IconButton
-                onClick={() => {
-                  dispatch({
-                    type: ActionType.REMOVE_PLAYER,
-                    value: index,
-                  });
-                }}
-              >
-                <RemoveCircleOutlineIcon />
-              </IconButton>
             </CardActions>
           </React.Fragment>
         </Card>
