@@ -34,10 +34,9 @@ react-scripts 4 uses webpack 4, which fails on Node 17+ with `ERR_OSSL_EVP_UNSUP
 - **Actions**: `ADD_PLAYER`, `REMOVE_PLAYER`, `ADD_PLAYER_GUESS`, `ADD_PLAYER_ACTUAL`, `NEW_GAME` (clears rounds, keeps players). The guess and actual actions are also used to *edit* past rounds from the History view. The reducer `console.log`s every action and throws on unknown types.
 - **Persistence** (`src/App.tsx`): the store is initialized from and synced to `localStorage` key `"store"` via `hook-local-storage` (typed by a hand-written declaration in `src/global.d.ts`). Changing the shape of `State` affects users' already-saved data — there is no migration/versioning.
 - **Round flow** (`Components/Player.tsx`): the current round number is derived as the count of keys in `player.rounds`. If that round has an integer `actual` (or there are no rounds), `AddRound` is shown to enter the next guess (which creates the round); otherwise `AddActual` is shown. Guess/actual pickers render buttons for 0..roundNumber up to `MAX_BUTTONS`, then fall back to a `Select`.
-- **Scoring** (`Components/Score.tsx`): `getScore` — exact guess = `20 + 10 * guess`, otherwise `-10 * |guess - actual|`; an unset actual scores 0. This is the only unit-tested logic (`Components/Score.test.ts`).
+- **Scoring** (`Components/Score.tsx`): `getScore` — exact guess = `20 + 10 * guess`, otherwise `-10 * |guess - actual|`; an unset actual scores 0. Unit tests cover this (`Components/Score.test.ts`) and player removal in the reducer (`src/state.test.ts`).
 - **Layout**: `App` renders `AddPlayer`, `NewGame`, `Scores` in a side column and `Players` (current-round input) plus `History` (editable per-round cards, remove-player button) in the main column.
 
 ## Known issues
 
-- `REMOVE_PLAYER` uses `state.players.splice(playerIndex + 1, 1)`, which mutates state and returns the removed element rather than the remaining players — removing a player does not work correctly.
 - History selects use `round.actual || 0`, so an unset actual displays as 0.
